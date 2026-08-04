@@ -10,7 +10,11 @@ const Body: QuartzComponent = ({ children }: QuartzComponentProps) => {
   return <div id="quartz-body">{children}</div>
 }
 
-Body.afterDOMLoaded = clipboardScript + "\n" + tikzjaxScript
+// Wrapped in its own IIFE: these inline scripts are each minified independently
+// before being concatenated as plain strings, so without isolation their
+// short, auto-generated top-level names (e.g. "wt") can collide and silently
+// overwrite each other.
+Body.afterDOMLoaded = clipboardScript + "\n" + `(function(){${tikzjaxScript}})();`
 Body.css = clipboardStyle + "\n" + tikzjaxStyle
 
 export default (() => Body) satisfies QuartzComponentConstructor
