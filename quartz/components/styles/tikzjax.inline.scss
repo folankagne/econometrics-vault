@@ -1,0 +1,13 @@
+.tikz-figure {
+  text-align: center;
+  margin: 1.5rem 0;
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+:root[saved-theme="dark"] .tikz-figure svg {
+  filter: invert(0.9) hue-rotate(180deg);
+}

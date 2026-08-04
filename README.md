@@ -1,18 +1,13 @@
-# Quartz v4
+# Econometrica — published site
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+This repo publishes the [Econometrica](content/README.md) econometrics knowledge vault as a website using [Quartz](https://quartz.jzhao.xyz/), deployed to GitHub Pages via the workflow in `.github/workflows/deploy.yml`.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+- Vault content lives entirely under [`content/`](content/) — see [`content/README.md`](content/README.md) for the vault's own format, sourcing, and reading order documentation.
+- Quartz tooling (everything outside `content/`) is MIT-licensed, from [jackyzha0/quartz](https://github.com/jackyzha0/quartz) — see `LICENSE.txt`.
+- TikZ figures render client-side via [TikZJax](https://github.com/artisticat1/tikzjax) (`quartz/components/scripts/tikzjax.inline.ts`), matching how they render in Obsidian.
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+## Updating the site
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
-
-## Sponsors
-
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+1. Edit the vault (either directly in `content/`, or in the original Obsidian vault and copy changes into `content/`).
+2. `npx quartz build --serve` to preview locally.
+3. Commit and push to `main` — the GitHub Actions workflow rebuilds and redeploys automatically.
